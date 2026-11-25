@@ -8,6 +8,7 @@
         "silverstripe/framework": "^6"
     },
     "require-dev": {
+        "silverstripe/recipe-testing": "^4",
         "phpunit/phpunit": "^11.3",
         "silverstripe/cms": "^6"
     },
