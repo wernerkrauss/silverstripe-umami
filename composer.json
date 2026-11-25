@@ -28,6 +28,7 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "silverstripe/recipe-plugin": true,
             "silverstripe/vendor-plugin": true
         }
     },
