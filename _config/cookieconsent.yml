@@ -1,0 +1,8 @@
+---
+Name: silverstripe-umami-cookieconsent
+Only:
+  moduleexists: 'pixelpoems/silverstripe-vanilla-cookieconsent'
+---
+VanillaCookieConsent\Services\CCService:
+  extensions:
+    - Netwerkstatt\Umami\Extension\CCServiceExtension

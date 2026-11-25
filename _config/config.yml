@@ -1,0 +1,11 @@
+---
+Name: silverstripe-umami
+---
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - Netwerkstatt\Umami\Extension\SiteConfigExtension
+
+Netwerkstatt\Umami\Services\UmamiTracker:
+  track_environments:
+    - live
+  require_consent: true

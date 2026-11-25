@@ -1,0 +1,4 @@
+en:
+  VanillaCookieConsent\\Categories:
+    Analytics: 'Analytics'
+    AnalyticsDescription: 'We use Umami to analyse site usage. Umami is privacy-friendly, works entirely without cookies and does not store any data on your device.'
