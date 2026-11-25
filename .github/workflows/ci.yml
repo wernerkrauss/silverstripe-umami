@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  silverstripe-ci:
+    uses: wernerkrauss/netwerkstatt-deploy-action/.github/workflows/reusable-silverstripe-ci.yml@v1.3.0
+    with:
+      php_version: '8.4'
+      run_phpunit: true
