@@ -5,12 +5,12 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": "^8.4",
-        "silverstripe/framework": "^6"
+        "silverstripe/framework": "^6",
+        "silverstripe/cms": "^6"
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^4",
-        "phpunit/phpunit": "^11.3",
-        "silverstripe/cms": "^6"
+        "phpunit/phpunit": "^11.3"
     },
     "suggest": {
         "pixelpoems/silverstripe-vanilla-cookieconsent": "Optional cookie consent integration."
@@ -33,5 +33,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    }
 }
