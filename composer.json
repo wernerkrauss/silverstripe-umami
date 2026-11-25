@@ -1,7 +1,7 @@
 {
     "name": "wernerkrauss/silverstripe-umami",
     "description": "Umami analytics integration for Silverstripe: SiteConfig settings, environment-gated tracker template and optional vanilla-cookieconsent integration.",
-    "type": "silverstripe-vendor-module",
+    "type": "silverstripe-vendormodule",
     "license": "BSD-3-Clause",
     "require": {
         "php": "^8.4",
