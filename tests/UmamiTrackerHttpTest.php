@@ -10,15 +10,12 @@ use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
 use SilverStripe\SiteConfig\SiteConfig;
-use TractorCow\Fluent\Extension\FluentSiteTreeExtension;
-use TractorCow\Fluent\Model\Locale;
 
 /**
  * HTTP-level tests: requests the homepage through the full stack and asserts
  * on the rendered UmamiTracker include in Page.ss.
  *
  * Note: expects a project setup where Page.ss contains `<% include UmamiTracker %>`.
- * Fluent is disabled for these tests (via $illegal_extensions) so URLs stay unprefixed
  * and no Fluent locale records are needed.
  */
 class UmamiTrackerHttpTest extends FunctionalTest
@@ -26,12 +23,6 @@ class UmamiTrackerHttpTest extends FunctionalTest
     protected $usesDatabase = true;
 
     protected static $fixture_file = 'fixtures.yml';
-
-    protected $requireDefaultRecordsFrom = [Locale::class];
-
-    protected static $illegal_extensions = [
-        SiteTree::class => [FluentSiteTreeExtension::class],
-    ];
 
     protected function setUp(): void
     {
