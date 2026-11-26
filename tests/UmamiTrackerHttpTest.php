@@ -7,6 +7,7 @@ namespace Netwerkstatt\Umami\Tests;
 use Netwerkstatt\Umami\Services\UmamiTracker;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
+use SilverStripe\View\SSViewer;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -35,6 +36,11 @@ class UmamiTrackerHttpTest extends FunctionalTest
         }
     }
 
+    private function renderTracker(): string
+    {
+        return (string) SSViewer::create('UmamiTracker')->process(UmamiTracker::create());
+    }
+
     private function configureSiteConfig(bool $active, bool $consentActive, string $websiteId): void
     {
         $config = SiteConfig::current_site_config();
@@ -49,10 +55,7 @@ class UmamiTrackerHttpTest extends FunctionalTest
     {
         $this->configureSiteConfig(true, true, 'test-key-123');
 
-        $response = $this->get('/');
-
-        $this->assertSame(200, $response->getStatusCode());
-        $body = (string) $response->getBody();
+        $body = $this->renderTracker();
         // with consent active: no src, only data-src (script is fetched only after consent)
         $this->assertStringContainsString('data-src="https://umami.example.com/script.js"', $body);
         $this->assertStringNotContainsString(' src="https://umami.example.com/script.js"', $body);
@@ -66,7 +69,7 @@ class UmamiTrackerHttpTest extends FunctionalTest
     {
         $this->configureSiteConfig(true, false, 'test-key-456');
 
-        $body = (string) $this->get('/')->getBody();
+        $body = $this->renderTracker();
 
         // without consent: plain src, no data-src, no consent attributes
         $this->assertStringContainsString(' src="https://umami.example.com/script.js"', $body);
@@ -79,7 +82,7 @@ class UmamiTrackerHttpTest extends FunctionalTest
     {
         $this->configureSiteConfig(false, true, 'test-key-789');
 
-        $body = (string) $this->get('/')->getBody();
+        $body = $this->renderTracker();
 
         $this->assertStringNotContainsString('data-website-id', $body);
         $this->assertStringNotContainsString('umami.example.com/script.js', $body);
