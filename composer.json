@@ -10,7 +10,8 @@
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^4",
-        "phpunit/phpunit": "^11.3"
+        "phpunit/phpunit": "^11.3",
+        "tractorcow/silverstripe-fluent": "^6"
     },
     "suggest": {
         "pixelpoems/silverstripe-vanilla-cookieconsent": "Optional cookie consent integration."
